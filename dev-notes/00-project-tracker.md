@@ -70,20 +70,31 @@ See `.instructions.md` for architecture and design decisions.
   - [x] Integration with MetricsCollector
 - [x] Integration tests (tested against http://leyland.local/)
 
-### Phase 7: Output Formatters
-- [ ] Implement TableFormatter (src/formatters/TableFormatter.js) - Default output
-- [ ] Implement JsonFormatter (src/formatters/JsonFormatter.js)
-- [ ] Implement CsvFormatter (src/formatters/CsvFormatter.js)
-- [ ] Formatter factory (src/formatters/factory.js)
-- [ ] Test all formatters with sample data
+### Phase 7: Output Formatters ✅ COMPLETE
+- [x] Implement TableFormatter (src/formatters/TableFormatter.js) - Default output
+  - [x] Uses cli-table3 for formatted ASCII tables
+  - [x] Summary table with key metrics
+  - [x] Response times table with percentiles
+  - [x] Status codes table with distribution
+  - [x] Errors table (if any errors occurred)
+- [x] Implement JsonFormatter (src/formatters/JsonFormatter.js)
+  - [x] Pretty-printed JSON with 2-space indentation
+  - [x] All metrics included for programmatic parsing
+- [x] Implement CsvFormatter (src/formatters/CsvFormatter.js)
+  - [x] CSV format for spreadsheet import
+  - [x] Proper field escaping for special characters
+  - [x] Metric,Value structure for easy parsing
+- [x] Formatter factory (src/formatters/factory.js) - Working
+- [x] Test all formatters with sample data
 
 ### Phase 8: End-to-End Integration
-- [ ] Wire all components together (src/main.js)
-- [ ] Test default behavior: `wordstress example.com`
-- [ ] Test steady-state with parameters
-- [ ] Test burst mode
-- [ ] Test all output formats
-- [ ] Test error handling
+- [x] Wire all components together (src/main.js)
+- [x] Test default behavior: `wordstress example.com`
+- [x] Test steady-state with parameters
+- [x] Test burst mode
+- [x] Test all output formats (table, json, csv)
+- [x] Test error handling
+- [x] User agent support integrated
 
 ### Phase 9: Testing & Polish
 - [ ] Unit test suite for all modules
@@ -102,11 +113,12 @@ See `.instructions.md` for architecture and design decisions.
 
 ## Current Sprint
 
-### Active Tasks (Phase 7)
-- [ ] Implement TableFormatter with cli-table3
-- [ ] Implement JsonFormatter (basic JSON output)
-- [ ] Implement CsvFormatter with proper escaping
-- [ ] Wire formatters into main.js output pipeline
+### Active Tasks (Phase 9)
+- [ ] Write unit tests for core modules (utils, metrics, user-agent)
+- [ ] Write integration tests for test modes
+- [ ] Manual testing with different parameter combinations
+- [ ] Performance and edge case testing
+- [ ] Documentation refinement
 
 ### Quick Wins Available
 - [ ] Create formatter factory (selects between formatters)
