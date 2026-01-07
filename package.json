@@ -13,7 +13,7 @@
     "format:check": "prettier --check \"src/**/*.js\" \"bin/wordstress\"",
     "lint": "eslint src bin/wordstress",
     "lint:fix": "eslint src bin/wordstress --fix",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node bin/wordstress --help && echo 'CLI help test passed'"
   },
   "keywords": [
     "wordpress",
