@@ -10,6 +10,7 @@ const { getFormatter } = require('./formatters/factory');
 const { buildUrl } = require('./utils');
 const { makeRequest } = require('./http/client');
 const MetricsCollector = require('./metrics/MetricsCollector');
+const { resolveUserAgent } = require('./user-agent');
 
 /**
  * Main application function
@@ -40,13 +41,25 @@ async function main(args) {
     logger.log(`Output Format: ${config.output}`);
     logger.log('');
 
+    // Resolve user agent
+    const userAgent = resolveUserAgent(config);
+    if (config.customUserAgent) {
+      logger.log(`User-Agent: ${config.customUserAgent} (custom)`);
+    } else {
+      logger.log(`User-Agent: ${config.browser}`);
+    }
+    logger.log('');
+
     // Create instances for test execution
     const testMode = getTestMode(config);
     const metricsCollector = new MetricsCollector();
     const formatter = getFormatter(config.output);
 
-    // Run the test
-    const results = await testMode.run({ makeRequest }, metricsCollector);
+    // Run the test with user agent
+    const results = await testMode.run(
+      { makeRequest: (url, options) => makeRequest(url, { ...options, userAgent }) },
+      metricsCollector
+    );
 
     // Format and output results
     const output = formatter.format(results);

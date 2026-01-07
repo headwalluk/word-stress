@@ -41,6 +41,11 @@ function setupCli() {
     .option('--https <on|off>', 'Use HTTPS (default: on)', 'on')
     .option('--timeout <ms>', 'Request timeout in milliseconds (default: 30000)', '30000')
     .option('--follow-redirects <on|off>', 'Follow HTTP redirects (default: on)', 'on')
+    .option(
+      '--browser <name>',
+      'Browser type for user agent: firefox, chrome, safari (default: chrome)'
+    )
+    .option('--user-agent <string>', 'Custom user agent string (overrides --browser)')
     .option('--output <format>', 'Output format: table, json, csv (default: table)', 'table')
     .option('--verbose', 'Enable verbose logging', false);
 

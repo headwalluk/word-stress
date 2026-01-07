@@ -15,6 +15,7 @@ const logger = require('../logger');
  * @param {string} options.method - HTTP method (GET, POST, etc.) - default: GET
  * @param {number} options.timeout - Timeout in milliseconds - default: 30000
  * @param {boolean} options.followRedirects - Follow redirects - default: true
+ * @param {string} options.userAgent - User agent string - default: Node.js default
  * @returns {Promise<Object>} Result object with metrics
  *   - statusCode: HTTP status code or null
  *   - responseTime: Response time in milliseconds
@@ -23,7 +24,7 @@ const logger = require('../logger');
  *   - errorType: 'network' | 'timeout' | 'http' | null
  */
 async function makeRequest(url, options = {}) {
-  const { method = 'GET', timeout = 30000, followRedirects = true } = options;
+  const { method = 'GET', timeout = 30000, followRedirects = true, userAgent = null } = options;
 
   const startTime = Date.now();
   let statusCode = null;
@@ -40,7 +41,13 @@ async function makeRequest(url, options = {}) {
       method,
       signal: controller.signal,
       redirect: followRedirects ? 'follow' : 'manual',
+      headers: {},
     };
+
+    // Add User-Agent header if provided
+    if (userAgent) {
+      fetchOptions.headers['User-Agent'] = userAgent;
+    }
 
     let response;
     try {

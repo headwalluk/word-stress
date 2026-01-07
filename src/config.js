@@ -26,6 +26,10 @@ const defaults = {
   followRedirects: true,
   output: 'table', // table, json, csv
 
+  // User agent
+  browser: 'chrome', // firefox, chrome, safari
+  customUserAgent: null,
+
   // Test mode
   mode: 'steady-state', // steady-state or burst
 
@@ -85,6 +89,14 @@ function buildConfig(args) {
     config.output = args.output.toLowerCase();
   }
 
+  // User agent parameters
+  if (args.userAgent !== undefined) {
+    config.customUserAgent = args.userAgent;
+  }
+  if (args.browser !== undefined) {
+    config.browser = args.browser.toLowerCase();
+  }
+
   return config;
 }
 
@@ -129,6 +141,14 @@ function validate(config) {
 
   if (config.timeout < 1) {
     throw new Error('--timeout must be greater than 0');
+  }
+
+  // Validate browser if not using custom user agent
+  if (!config.customUserAgent) {
+    const validBrowsers = ['firefox', 'chrome', 'safari'];
+    if (!validBrowsers.includes(config.browser)) {
+      throw new Error(`--browser must be one of: ${validBrowsers.join(', ')}`);
+    }
   }
 }
 
