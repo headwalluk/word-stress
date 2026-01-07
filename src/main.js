@@ -38,22 +38,23 @@ async function main(args) {
     logger.log(`Output Format: ${config.output}`);
     logger.log('');
 
-    // Get test mode instance
-    const testMode = getTestMode(config);
+    // Get test mode instance (placeholder - actual execution in Phase 3+)
+    getTestMode(config);
 
     // Run test (placeholder - actual implementation in Phase 3+)
-    logger.log('Note: Test execution framework is in place. HTTP client implementation coming in Phase 3.');
-    
-    // Get formatter
-    const formatter = getFormatter(config.output);
+    logger.log(
+      'Note: Test execution framework is in place. HTTP client implementation coming in Phase 3.'
+    );
+
+    // Get formatter (placeholder - actual formatting in Phase 7+)
+    getFormatter(config.output);
 
     // TODO: Execute test mode and collect results
     // const results = await testMode.run();
-    
+
     // TODO: Format and output results
     // const output = formatter.format(results);
     // logger.log(output);
-
   } catch (error) {
     logger.error(error.message);
     process.exit(1);

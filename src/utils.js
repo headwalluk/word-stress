@@ -9,8 +9,12 @@
  * @returns {number} Percentile value
  */
 function calculatePercentile(sortedArray, percentile) {
-  if (sortedArray.length === 0) return 0;
-  if (percentile === 50) return calculateMedian(sortedArray);
+  if (sortedArray.length === 0) {
+    return 0;
+  }
+  if (percentile === 50) {
+    return calculateMedian(sortedArray);
+  }
 
   const index = (percentile / 100) * (sortedArray.length - 1);
   const lower = Math.floor(index);
@@ -30,7 +34,9 @@ function calculatePercentile(sortedArray, percentile) {
  * @returns {number} Median value
  */
 function calculateMedian(sortedArray) {
-  if (sortedArray.length === 0) return 0;
+  if (sortedArray.length === 0) {
+    return 0;
+  }
   const mid = Math.floor(sortedArray.length / 2);
   if (sortedArray.length % 2 === 1) {
     return sortedArray[mid];
@@ -56,7 +62,9 @@ function buildUrl(config) {
  * @returns {string} Formatted string
  */
 function formatBytes(bytes) {
-  if (bytes === 0) return '0 B';
+  if (bytes === 0) {
+    return '0 B';
+  }
   const k = 1024;
   const sizes = ['B', 'KB', 'MB', 'GB'];
   const i = Math.floor(Math.log(bytes) / Math.log(k));

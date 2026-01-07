@@ -3,7 +3,6 @@
  * Loads and normalizes all configuration from CLI arguments and environment variables
  */
 
-const path = require('path');
 require('dotenv').config();
 
 /**

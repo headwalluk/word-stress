@@ -81,9 +81,10 @@ class MetricsCollector {
     // Calculate response time percentiles
     const minResponseTime = responseTimes.length > 0 ? responseTimes[0] : 0;
     const maxResponseTime = responseTimes.length > 0 ? responseTimes[responseTimes.length - 1] : 0;
-    const avgResponseTime = responseTimes.length > 0
-      ? responseTimes.reduce((a, b) => a + b, 0) / responseTimes.length
-      : 0;
+    const avgResponseTime =
+      responseTimes.length > 0
+        ? responseTimes.reduce((a, b) => a + b, 0) / responseTimes.length
+        : 0;
 
     // Calculate total data transferred
     const totalDataTransferred = this.requests.reduce((sum, r) => sum + (r.size || 0), 0);
@@ -124,9 +125,11 @@ class MetricsCollector {
 
       // Success rate
       successRate: parseFloat(
-        (((this.requests.length - Object.values(errorCounts).reduce((a, b) => a + b, 0)) /
-          this.requests.length) *
-          100).toFixed(2)
+        (
+          ((this.requests.length - Object.values(errorCounts).reduce((a, b) => a + b, 0)) /
+            this.requests.length) *
+          100
+        ).toFixed(2)
       ),
     };
   }

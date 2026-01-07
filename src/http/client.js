@@ -6,10 +6,10 @@
 /**
  * Make an HTTP request
  * @param {string} url - Full URL to request
- * @param {Object} options - Request options
+ * @param {Object} _options - Request options
  * @returns {Promise<Object>} Response object with time, status, size, error
  */
-async function makeRequest(url, options = {}) {
+async function makeRequest(url, _options = {}) {
   // TODO: Implement HTTP client
   throw new Error('HTTP client not yet implemented');
 }

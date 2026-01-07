@@ -12,14 +12,51 @@
 ### Key Files
 - `package.json` - Project configuration and dependencies
 - `README.md` - Project documentation
-- `.gitignore` - Git ignore patterns
-
+- `.gitignore` - Git ignore patterns- `.prettierrc.json` - Prettier formatting configuration
+- `.eslintrc.json` - ESLint rules configuration
 ## Coding Standards
 
 ### General Principles
 - Write clean, readable, and maintainable code
 - Follow Node.js best practices
 - Use consistent formatting and naming conventions
+
+### Code Formatting & Linting
+
+**Prettier** is used for automatic code formatting:
+```bash
+# Format all files (write changes)
+npm run format
+
+# Check formatting without writing
+npm run format:check
+```
+
+**ESLint** is used for code quality and standards:
+```bash
+# Check code for issues
+npm run lint
+
+# Fix issues automatically
+npm run lint:fix
+```
+
+All code MUST:
+- Be formatted with Prettier before commit
+- Pass ESLint checks
+- Use 2-space indentation
+- Have no unused variables or imports
+- Use consistent quotes (single quotes preferred)
+- Include trailing semicolons
+
+### Before Committing
+Always run:
+```bash
+npm run format
+npm run lint:fix
+```
+
+This ensures clean, consistent code style across the project.
 
 ### File Organization
 - One module per file
@@ -111,6 +148,87 @@ LOG_LEVEL=info
 .env
 .env.test
 ```
+
+## Code Quality Tools
+
+### Prettier Configuration
+
+**`.prettierrc.json`** - Prettier formatting configuration:
+
+```json
+{
+  "singleQuote": true,
+  "trailingComma": "es5",
+  "tabWidth": 2,
+  "semi": true,
+  "printWidth": 100,
+  "arrowParens": "avoid"
+}
+```
+
+- Single quotes preferred
+- Trailing commas in objects and arrays
+- 2-space indentation
+- Semicolons required
+- 100 character line width
+- Arrow function parens only when necessary
+
+### ESLint Configuration
+
+**`.eslintrc.json`** - ESLint rules configuration:
+
+```json
+{
+  "env": {
+    "node": true,
+    "es2021": true
+  },
+  "extends": ["eslint:recommended"],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "rules": {
+    "no-console": "off",
+    "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+    "prefer-const": "error",
+    "eqeqeq": ["error", "always"],
+    "curly": "error"
+  }
+}
+```
+
+Key rules:
+- Console usage allowed (for CLI apps)
+- Unused variables prohibited (unless prefixed with `_`)
+- Const preferred over let/var
+- Strict equality required (`===`)
+- Explicit braces required
+
+### npm Scripts
+
+Add to `package.json`:
+
+```json
+{
+  "scripts": {
+    "format": "prettier --write \"src/**/*.js\" \"bin/**/*.js\" \"tests/**/*.js\"",
+    "format:check": "prettier --check \"src/**/*.js\" \"bin/**/*.js\" \"tests/**/*.js\"",
+    "lint": "eslint \"src/**/*.js\" \"bin/**/*.js\" \"tests/**/*.js\"",
+    "lint:fix": "eslint \"src/**/*.js\" \"bin/**/*.js\" \"tests/**/*.js\" --fix",
+    "test": "node --test tests/**/*.js",
+    "precommit": "npm run format && npm run lint:fix"
+  }
+}
+```
+
+Use these scripts:
+- `npm run format` - Format all code with Prettier
+- `npm run format:check` - Check formatting without writing (CI)
+- `npm run lint` - Check code quality with ESLint
+- `npm run lint:fix` - Auto-fix linting issues
+- `npm run test` - Run test suite (when implemented)
+- `npm run precommit` - Run before commits (optional git hook)
 
 ## CLI Development
 

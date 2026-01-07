@@ -9,6 +9,10 @@
   "scripts": {
     "start": "node bin/wordstress",
     "dev": "node bin/wordstress",
+    "format": "prettier --write \"src/**/*.js\" \"bin/wordstress\"",
+    "format:check": "prettier --check \"src/**/*.js\" \"bin/wordstress\"",
+    "lint": "eslint src bin/wordstress",
+    "lint:fix": "eslint src bin/wordstress --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -30,5 +34,9 @@
     "commander": "^14.0.2",
     "dotenv": "^17.2.3",
     "ora": "^9.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^9.39.2",
+    "prettier": "^3.7.4"
   }
 }

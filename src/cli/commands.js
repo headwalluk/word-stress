@@ -24,21 +24,9 @@ function setupCli() {
 
   program
     .argument('<domain>', 'Domain to test (e.g., example.com)')
-    .option(
-      '--clients <n>',
-      'Number of parallel clients for steady-state mode (default: 5)',
-      '5'
-    )
-    .option(
-      '--interval <ms>',
-      'Milliseconds between each client request (default: 1000)',
-      '1000'
-    )
-    .option(
-      '--duration <s>',
-      'Test duration in seconds (default: 60)',
-      '60'
-    )
+    .option('--clients <n>', 'Number of parallel clients for steady-state mode (default: 5)', '5')
+    .option('--interval <ms>', 'Milliseconds between each client request (default: 1000)', '1000')
+    .option('--duration <s>', 'Test duration in seconds (default: 60)', '60')
     .option(
       '--mode <mode>',
       'Test mode: steady-state or burst (default: steady-state)',
@@ -48,41 +36,13 @@ function setupCli() {
       '--burst-clients <n>',
       'Number of simultaneous requests for burst mode (required for burst)'
     )
-    .option(
-      '--endpoint <path>',
-      'URL path/endpoint to test (default: /)',
-      '/'
-    )
-    .option(
-      '--method <METHOD>',
-      'HTTP method: GET, POST, PUT, DELETE, PATCH (default: GET)',
-      'GET'
-    )
-    .option(
-      '--https <on|off>',
-      'Use HTTPS (default: on)',
-      'on'
-    )
-    .option(
-      '--timeout <ms>',
-      'Request timeout in milliseconds (default: 30000)',
-      '30000'
-    )
-    .option(
-      '--follow-redirects <on|off>',
-      'Follow HTTP redirects (default: on)',
-      'on'
-    )
-    .option(
-      '--output <format>',
-      'Output format: table, json, csv (default: table)',
-      'table'
-    )
-    .option(
-      '--verbose',
-      'Enable verbose logging',
-      false
-    );
+    .option('--endpoint <path>', 'URL path/endpoint to test (default: /)', '/')
+    .option('--method <METHOD>', 'HTTP method: GET, POST, PUT, DELETE, PATCH (default: GET)', 'GET')
+    .option('--https <on|off>', 'Use HTTPS (default: on)', 'on')
+    .option('--timeout <ms>', 'Request timeout in milliseconds (default: 30000)', '30000')
+    .option('--follow-redirects <on|off>', 'Follow HTTP redirects (default: on)', 'on')
+    .option('--output <format>', 'Output format: table, json, csv (default: table)', 'table')
+    .option('--verbose', 'Enable verbose logging', false);
 
   return program;
 }

@@ -8,7 +8,7 @@
  * @param {Object} results - Test results
  * @returns {string} Formatted output
  */
-function format(results) {
+function format(_results) {
   // TODO: Implement table formatter
   throw new Error('TableFormatter not yet implemented');
 }

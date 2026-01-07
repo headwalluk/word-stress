@@ -23,7 +23,7 @@ async function run() {
   program.parse(process.argv);
 }
 
-run().catch((error) => {
+run().catch(error => {
   console.error('Unexpected error:', error.message);
   process.exit(1);
 });
