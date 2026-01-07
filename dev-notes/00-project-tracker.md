@@ -33,35 +33,41 @@ See `.instructions.md` for architecture and design decisions.
 - [x] Create placeholder modules for phases 3-7
 - [x] Update README.md with correct usage examples
 
-### Phase 3: HTTP Client & Request Handling
-- [ ] Implement HTTP client with Fetch API (src/http/client.js)
-- [ ] Handle GET and POST requests
-- [ ] Implement timeout handling
-- [ ] Implement error classification (network, timeout, HTTP errors)
-- [ ] Handle redirects
+### Phase 3: HTTP Client & Request Handling ✅ COMPLETE
+- [x] Implement HTTP client with Fetch API (src/http/client.js)
+- [x] Handle GET and POST requests
+- [x] Implement timeout handling with AbortController
+- [x] Implement error classification (network, timeout, HTTP errors)
+- [x] Handle redirects (configurable follow-redirects parameter)
+- [x] Response size tracking from Content-Length
+- [x] Response time measurement
+- [x] Tested against local WordPress site (http://leyland.local/)
 
-### Phase 4: Metrics Collection Engine
-- [ ] Implement MetricsCollector class (src/metrics/MetricsCollector.js)
-- [ ] Per-request metrics: response time, status code, size, errors
-- [ ] Aggregate metrics: min/max/avg/median/percentiles
-- [ ] Calculate throughput (req/s)
-- [ ] Track data transferred
-- [ ] Unit tests for metrics calculations
+### Phase 4: Metrics Collection Engine ✅ COMPLETE
+- [x] Implement MetricsCollector class (src/metrics/MetricsCollector.js)
+- [x] Per-request metrics: response time, status code, size, errors
+- [x] Aggregate metrics: min/max/avg/median/percentiles
+- [x] Calculate throughput (req/s)
+- [x] Track data transferred
+- [x] Tested metrics calculations with sample data
 
 ### Phase 5: Steady-State Test Mode
 - [ ] Implement SteadyStateTestMode class
-- [ ] Client spawning and scheduling
-- [ ] Interval-based request timing
-- [ ] Duration tracking
-- [ ] Integration with metrics collector
+  - [ ] run(config, client) async method
+  - [ ] Client spawning and scheduling
+  - [ ] Interval-based request timing (config.interval)
+  - [ ] Duration tracking (config.duration)
+  - [ ] Integration with MetricsCollector
+  - [ ] Signal handling (graceful shutdown)
 - [ ] Integration tests
 
 ### Phase 6: Burst Test Mode
 - [ ] Implement BurstTestMode class
-- [ ] Simultaneous request launching
-- [ ] Concurrent request handling
-- [ ] Error tracking during burst
-- [ ] Integration with metrics collector
+  - [ ] run(config, client) async method
+  - [ ] Simultaneous request launching (config.burstClients)
+  - [ ] Promise.all() for concurrent handling
+  - [ ] Error tracking during burst
+  - [ ] Integration with MetricsCollector
 - [ ] Integration tests
 
 ### Phase 7: Output Formatters
@@ -96,10 +102,11 @@ See `.instructions.md` for architecture and design decisions.
 
 ## Current Sprint
 
-### Active Tasks (Phase 3)
-- [ ] Implement HTTP client with Fetch API
-- [ ] Handle request timing and error classification
-- [ ] Test with real HTTP requests
+### Active Tasks (Phase 5-6)
+- [ ] Implement SteadyStateTestMode with interval-based request scheduling
+- [ ] Implement BurstTestMode with simultaneous request handling
+- [ ] Wire test modes to use HTTP client for making actual requests
+- [ ] Integrate with MetricsCollector for metrics tracking
 
 ### Quick Wins Available
 - [ ] Create formatter factory (selects between formatters)
