@@ -51,24 +51,24 @@ See `.instructions.md` for architecture and design decisions.
 - [x] Track data transferred
 - [x] Tested metrics calculations with sample data
 
-### Phase 5: Steady-State Test Mode
-- [ ] Implement SteadyStateTestMode class
-  - [ ] run(config, client) async method
-  - [ ] Client spawning and scheduling
-  - [ ] Interval-based request timing (config.interval)
-  - [ ] Duration tracking (config.duration)
-  - [ ] Integration with MetricsCollector
-  - [ ] Signal handling (graceful shutdown)
-- [ ] Integration tests
+### Phase 5: Steady-State Test Mode ✅ COMPLETE
+- [x] Implement SteadyStateTestMode class
+  - [x] run(config, client) async method
+  - [x] Client spawning and scheduling
+  - [x] Interval-based request timing (config.interval)
+  - [x] Duration tracking (config.duration)
+  - [x] Integration with MetricsCollector
+  - [x] Signal handling (graceful shutdown)
+- [x] Integration tests (tested against http://leyland.local/)
 
-### Phase 6: Burst Test Mode
-- [ ] Implement BurstTestMode class
-  - [ ] run(config, client) async method
-  - [ ] Simultaneous request launching (config.burstClients)
-  - [ ] Promise.all() for concurrent handling
-  - [ ] Error tracking during burst
-  - [ ] Integration with MetricsCollector
-- [ ] Integration tests
+### Phase 6: Burst Test Mode ✅ COMPLETE
+- [x] Implement BurstTestMode class
+  - [x] run(config, client) async method
+  - [x] Simultaneous request launching (config.burstClients)
+  - [x] Promise.all() for concurrent handling
+  - [x] Error tracking during burst
+  - [x] Integration with MetricsCollector
+- [x] Integration tests (tested against http://leyland.local/)
 
 ### Phase 7: Output Formatters
 - [ ] Implement TableFormatter (src/formatters/TableFormatter.js) - Default output
@@ -102,11 +102,11 @@ See `.instructions.md` for architecture and design decisions.
 
 ## Current Sprint
 
-### Active Tasks (Phase 5-6)
-- [ ] Implement SteadyStateTestMode with interval-based request scheduling
-- [ ] Implement BurstTestMode with simultaneous request handling
-- [ ] Wire test modes to use HTTP client for making actual requests
-- [ ] Integrate with MetricsCollector for metrics tracking
+### Active Tasks (Phase 7)
+- [ ] Implement TableFormatter with cli-table3
+- [ ] Implement JsonFormatter (basic JSON output)
+- [ ] Implement CsvFormatter with proper escaping
+- [ ] Wire formatters into main.js output pipeline
 
 ### Quick Wins Available
 - [ ] Create formatter factory (selects between formatters)
