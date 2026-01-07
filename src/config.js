@@ -3,7 +3,7 @@
  * Loads and normalizes all configuration from CLI arguments and environment variables
  */
 
-require('dotenv').config();
+require('dotenv').config({ quiet: true });
 
 /**
  * Default configuration values
