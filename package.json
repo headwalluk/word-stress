@@ -23,7 +23,15 @@
     "performance",
     "cli"
   ],
-  "author": "",
+  "author": "headwall",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/headwalluk/word-stress.git"
+  },
+  "homepage": "https://github.com/headwalluk/word-stress#readme",
+  "bugs": {
+    "url": "https://github.com/headwalluk/word-stress/issues"
+  },
   "license": "MIT",
   "engines": {
     "node": ">=21.0.0"

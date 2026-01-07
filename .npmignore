@@ -1,0 +1,42 @@
+# Development files
+.prettierrc.json
+eslint.config.cjs
+.eslintignore
+.gitignore
+.github/
+
+# Development notes
+dev-notes/
+
+# Dependencies
+node_modules/
+
+# Testing
+tests/
+
+# Temporary files
+*.log
+.env
+.env.test
+*.swp
+*.swo
+*~
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitattributes
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+.travis.yml
