@@ -8,6 +8,8 @@ const { buildConfig, validate } = require('./config');
 const { getTestMode } = require('./test-modes/factory');
 const { getFormatter } = require('./formatters/factory');
 const { buildUrl } = require('./utils');
+const { makeRequest } = require('./http/client');
+const MetricsCollector = require('./metrics/MetricsCollector');
 
 /**
  * Main application function
@@ -38,23 +40,17 @@ async function main(args) {
     logger.log(`Output Format: ${config.output}`);
     logger.log('');
 
-    // Get test mode instance (placeholder - actual execution in Phase 3+)
-    getTestMode(config);
+    // Create instances for test execution
+    const testMode = getTestMode(config);
+    const metricsCollector = new MetricsCollector();
+    const formatter = getFormatter(config.output);
 
-    // Run test (placeholder - actual implementation in Phase 3+)
-    logger.log(
-      'Note: Test execution framework is in place. HTTP client implementation coming in Phase 3.'
-    );
+    // Run the test
+    const results = await testMode.run({ makeRequest }, metricsCollector);
 
-    // Get formatter (placeholder - actual formatting in Phase 7+)
-    getFormatter(config.output);
-
-    // TODO: Execute test mode and collect results
-    // const results = await testMode.run();
-
-    // TODO: Format and output results
-    // const output = formatter.format(results);
-    // logger.log(output);
+    // Format and output results
+    const output = formatter.format(results);
+    logger.log(output);
   } catch (error) {
     logger.error(error.message);
     process.exit(1);
