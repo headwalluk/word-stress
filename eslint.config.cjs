@@ -18,6 +18,7 @@ module.exports = [
         global: 'readonly',
         setImmediate: 'readonly',
         setInterval: 'readonly',
+        clearInterval: 'readonly',
         setTimeout: 'readonly',
         clearTimeout: 'readonly',
         fetch: 'readonly',

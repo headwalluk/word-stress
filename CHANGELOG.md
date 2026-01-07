@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2026-01-07
+
+### Added
+- Progress indicator with elapsed time for long-running tests using ora spinner
+- Better UX feedback during test execution
+- Automatic progress updates every 500ms showing elapsed time vs total duration
+
+### Changed
+- All CLI help text now references `word-stress` instead of `wordstress` for consistency
+- Updated ESLint configuration to match renamed binary
+
 ## [1.0.0] - 2026-01-07
 
 ### Added - Phase 1: Project Setup
