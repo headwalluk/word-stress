@@ -8,17 +8,21 @@ A command-line tool for stress-testing WordPress and WooCommerce sites.
 
 ## Project Status
 
-🚧 **In Development** - Phase 2 scaffolding complete. CLI framework ready for implementation of test modes and metrics collection.
+✅ **Version 1.0.0** - Feature complete and production ready!
 
-## Features (Planned)
+## Features
 
-- Steady-state load testing with multiple concurrent clients
-- Burst capacity testing with simultaneous requests
-- Configurable intervals and durations
-- WordPress and WooCommerce endpoint testing
-- Comprehensive metrics collection (response times, percentiles, throughput)
-- Beautiful terminal output with tables
-- Export results to JSON/CSV formats
+- ✅ Steady-state load testing with multiple concurrent clients
+- ✅ Burst capacity testing with simultaneous requests
+- ✅ Configurable intervals, durations, and timeouts
+- ✅ WordPress and WooCommerce endpoint testing (GET/POST/PUT/DELETE/PATCH)
+- ✅ Comprehensive metrics: response times, percentiles (P95, P99), throughput, success rate
+- ✅ Realistic user agent support (Chrome, Firefox, Safari, or custom)
+- ✅ Beautiful ASCII table output
+- ✅ JSON and CSV export formats
+- ✅ HTTP/HTTPS with redirect handling
+- ✅ Request timeout support
+- ✅ Detailed error classification and tracking
 
 ## Installation
 
