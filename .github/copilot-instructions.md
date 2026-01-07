@@ -54,9 +54,11 @@ Always run:
 ```bash
 npm run format
 npm run lint:fix
+npm test
+npm audit
 ```
 
-This ensures clean, consistent code style across the project.
+This ensures clean, consistent code style, passes all tests, and checks for security vulnerabilities before committing.
 
 ### File Organization
 - One module per file
@@ -175,7 +177,7 @@ LOG_LEVEL=info
 
 ### ESLint Configuration
 
-**`.eslintrc.json`** - ESLint rules configuration:
+**`eslint.config.cjs`** - ESLint rules configuration:
 
 ```json
 {
