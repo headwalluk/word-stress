@@ -1,0 +1,29 @@
+#!/usr/bin/env node
+
+/**
+ * word-stress CLI executable
+ * Entry point for the command-line tool
+ */
+
+const { setupCli } = require('../src/cli/commands');
+const { main } = require('../src/main');
+
+async function run() {
+  const program = setupCli();
+
+  program.action((domain, options) => {
+    // Parse arguments and pass to main
+    const args = {
+      domain,
+      ...options,
+    };
+    main(args);
+  });
+
+  program.parse(process.argv);
+}
+
+run().catch((error) => {
+  console.error('Unexpected error:', error.message);
+  process.exit(1);
+});

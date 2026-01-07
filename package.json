@@ -2,12 +2,13 @@
   "name": "word-stress",
   "version": "0.1.0",
   "description": "A command-line tool for stress-testing WordPress and WooCommerce sites",
-  "main": "src/index.js",
+  "main": "src/main.js",
   "bin": {
-    "word-stress": "./bin/cli.js"
+    "wordstress": "./bin/wordstress"
   },
   "scripts": {
-    "start": "node bin/cli.js",
+    "start": "node bin/wordstress",
+    "dev": "node bin/wordstress",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -23,6 +24,11 @@
   "engines": {
     "node": ">=14.0.0"
   },
-  "dependencies": {},
-  "devDependencies": {}
+  "dependencies": {
+    "chalk": "^5.6.2",
+    "cli-table3": "^0.6.5",
+    "commander": "^14.0.2",
+    "dotenv": "^17.2.3",
+    "ora": "^9.0.0"
+  }
 }
