@@ -37,17 +37,17 @@ Tests with multiple parallel clients making periodic requests.
 
 ```bash
 # Default: 5 clients, 1000ms interval, 60 second duration
-./bin/wordstress example.com
+./bin/word-stress example.com
 
 # 10 clients with 500ms interval
-./bin/wordstress --clients=10 --interval=500 example.com
+./bin/word-stress --clients=10 --interval=500 example.com
 
 # WooCommerce AJAX endpoint
-./bin/wordstress --clients=20 --interval=1000 \
+./bin/word-stress --clients=20 --interval=1000 \
   --endpoint='/?wc-ajax=get_refreshed_fragments' --method=POST example.com
 
 # Test local development site without HTTPS
-./bin/wordstress --clients=5 --https=off example.dev
+./bin/word-stress --clients=5 --https=off example.dev
 ```
 
 ### Burst Testing
@@ -55,10 +55,10 @@ Tests with many simultaneous requests to measure peak capacity.
 
 ```bash
 # 50 simultaneous requests
-./bin/wordstress --mode=burst --burst-clients=50 example.com
+./bin/word-stress --mode=burst --burst-clients=50 example.com
 
 # 1000 simultaneous AJAX requests
-./bin/wordstress --mode=burst --burst-clients=1000 \
+./bin/word-stress --mode=burst --burst-clients=1000 \
   --endpoint='/?wc-ajax=get_refreshed_fragments' --method=POST example.com
 ```
 
@@ -66,20 +66,20 @@ Tests with many simultaneous requests to measure peak capacity.
 
 ```bash
 # Pretty table output (default)
-./bin/wordstress example.com
+./bin/word-stress example.com
 
 # JSON export
-./bin/wordstress --output=json example.com
+./bin/word-stress --output=json example.com
 
 # CSV export
-./bin/wordstress --output=csv example.com
+./bin/word-stress --output=csv example.com
 ```
 
 ### Help
 
 ```bash
-./bin/wordstress --help
-./bin/wordstress --version
+./bin/word-stress --help
+./bin/word-stress --version
 ```
 
 See [dev-notes/02-stress-test-requirements.md](dev-notes/02-stress-test-requirements.md) for detailed usage examples and requirements.

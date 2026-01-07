@@ -4,16 +4,16 @@
   "description": "A command-line tool for stress-testing WordPress and WooCommerce sites",
   "main": "src/main.js",
   "bin": {
-    "wordstress": "./bin/wordstress"
+    "word-stress": "./bin/word-stress"
   },
   "scripts": {
-    "start": "node bin/wordstress",
-    "dev": "node bin/wordstress",
-    "format": "prettier --write \"src/**/*.js\" \"bin/wordstress\"",
-    "format:check": "prettier --check \"src/**/*.js\" \"bin/wordstress\"",
-    "lint": "eslint src bin/wordstress",
-    "lint:fix": "eslint src bin/wordstress --fix",
-    "test": "node bin/wordstress --help && echo 'CLI help test passed'"
+    "start": "node bin/word-stress",
+    "dev": "node bin/word-stress",
+    "format": "prettier --write \"src/**/*.js\" \"bin/word-stress\"",
+    "format:check": "prettier --check \"src/**/*.js\" \"bin/word-stress\"",
+    "lint": "eslint src bin/word-stress",
+    "lint:fix": "eslint src bin/word-stress --fix",
+    "test": "node bin/word-stress --help && echo 'CLI help test passed'"
   },
   "keywords": [
     "wordpress",

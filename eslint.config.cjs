@@ -5,7 +5,7 @@ module.exports = [
     ignores: ['node_modules/', 'dist/'],
   },
   {
-    files: ['src/**/*.js', 'bin/wordstress'],
+    files: ['src/**/*.js', 'bin/word-stress'],
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'commonjs',

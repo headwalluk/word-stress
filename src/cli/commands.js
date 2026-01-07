@@ -18,7 +18,7 @@ function setupCli() {
   const program = new Command();
 
   program
-    .name('wordstress')
+    .name('word-stress')
     .description('Stress-testing CLI tool for WordPress and WooCommerce sites')
     .version(packageJson.version);
 
