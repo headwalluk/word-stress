@@ -20,14 +20,18 @@ See `.instructions.md` for architecture and design decisions.
 - [x] Define core architecture (.instructions.md)
 - [x] Select dependencies (decision: commander, chalk, ora, cli-table3, dotenv, Fetch API, custom logger)
 
-### Phase 2: CLI Framework & Infrastructure (CURRENT)
-- [ ] Set up npm dependencies
-- [ ] Create src/ directory structure
-- [ ] Implement centralized config module (src/config.js)
-- [ ] Implement custom logger (src/logger.js)
-- [ ] Set up CLI with commander (src/cli/commands.js)
-- [ ] Implement --help and --version
-- [ ] Test parameter parsing and validation
+### Phase 2: CLI Framework & Infrastructure ✅ COMPLETE
+- [x] Set up npm dependencies
+- [x] Create src/ directory structure
+- [x] Implement centralized config module (src/config.js)
+- [x] Implement custom logger (src/logger.js)
+- [x] Set up CLI with commander (src/cli/commands.js)
+- [x] Implement --help and --version
+- [x] Test parameter parsing and validation
+- [x] Create bin/wordstress executable
+- [x] Update package.json with bin entry and Node version requirement
+- [x] Create placeholder modules for phases 3-7
+- [x] Update README.md with correct usage examples
 
 ### Phase 3: HTTP Client & Request Handling
 - [ ] Implement HTTP client with Fetch API (src/http/client.js)
@@ -92,10 +96,17 @@ See `.instructions.md` for architecture and design decisions.
 
 ## Current Sprint
 
-### Active Tasks (Phase 2)
-- [ ] Review and validate design decisions
-- [ ] Set up npm dependencies
-- [ ] Create directory structure and core modules
+### Active Tasks (Phase 3)
+- [ ] Implement HTTP client with Fetch API
+- [ ] Handle request timing and error classification
+- [ ] Test with real HTTP requests
+
+### Quick Wins Available
+- [ ] Create formatter factory (selects between formatters)
+- [ ] Create test mode factory (selects between test modes)
+- [ ] Wire main.js to instantiate and call test modes
+- [ ] Add utility module for common functions (percentile calculation, etc.)
+- [ ] Scaffold MetricsCollector with core data structures
 
 ---
 
